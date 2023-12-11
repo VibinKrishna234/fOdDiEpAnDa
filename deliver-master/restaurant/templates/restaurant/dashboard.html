@@ -1,0 +1,69 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="card col-md-5 mr-3">
+                <h4 class="text-center pt-2">Today's Total Revenue</h4>
+                <h1 class="text-center" style="color: green;">{{ total_revenue }}</h1>
+            </div>
+
+            <div class="card col-md-5 mr-3">
+                <h4 class="text-center pt-2">Today's Total Orders</h4>
+                <h1 class="text-center" style="color: #ad0003;">{{ total_orders }}</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 mt-5">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Order ID</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Price</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Name</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Email</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Street</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">City</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">State</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Zip Code</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Is Paid?</th>
+                            <th style="color:white; font-weight: bolder; font-size:15px;" scope="col">Details</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <th scope="row" style="color:white; font-weight: bolder; font-size:15px;">{{ order.pk }}</th>
+                            <td style="color:white; font-weight: bolder; font-size:15px;">{{ order.price }}</td>
+                            <td style="color:white; font-weight: bolder; font-size:15px;">{{ order.name }}</td>
+                            <td style="color:white; font-weight: bolder; font-size:15px;">{{ order.email }}</td>
+                            <td style="color:white; font-weight: bolder; font-size:15px;">{{ order.street }}</td>
+                            <td style="color:white; font-weight: bolder; font-size:15px;">{{ order.city }}</td>
+                            <td style="color:white; font-weight: bolder; font-size:15px;">{{ order.state }}</td>
+                            <td style="color:white; font-weight: bolder; font-size:15px;">{{ order.zip_code }}</td>
+                            <td>
+                                {% if order.is_paid %}
+                                <i style="color: green;" class="fas fa-check"></i>
+                                {% else %}
+                                <i style="color: red; font-size:15px" class="fas fa-times"></i>
+                                {% endif %}
+
+                            </td>
+                            <td><a href="{% url 'order-details' order.pk %}"><i class="far fa-edit"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                 <style>
+                    body {
+                    background-image: url('https://wallpapers.com/images/featured/fries-background-ou337mywvgn8bf4g.jpg');
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    }
+                 </style>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

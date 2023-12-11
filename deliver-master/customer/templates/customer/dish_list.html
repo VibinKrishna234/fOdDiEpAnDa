@@ -1,0 +1,6 @@
+<h1>Dishes</h1>
+{% for dish in dishes %}
+  <h2>{{ dish.name }}</h2>
+  <p>{{ dish.description }}</p>
+  <p>Price: ${{ dish.price }}</p>
+{% endfor %}

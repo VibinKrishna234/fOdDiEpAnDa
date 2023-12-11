@@ -1,0 +1,133 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-sm-12 text-center">
+            <h1 style="color:white; font-weight: bolder;">What's On Our Menu</h1>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center mt-5">
+
+        <div class="col-md-8 col-sm-12 text-center">
+            <form method="GET" action="{% url 'menu-search' %}">
+                <div class="md-form mt-0 active-cyan-2">
+                    <input style="color:white;"  class="form-control" name="q" type="text" placeholder="Search Our Menu" aria-label="Search" value="{{ request.GET.q}}">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <style>
+            body {
+            background-image: url('https://img.freepik.com/premium-photo/photorealistic-product-shot-food-photography-indi_670382-101255.jpg?w=2000');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            }
+        </style>
+        {% for item in menu_items %}
+        <div class="col-md-4 col-sm-12 text-center mb-5">
+            <div class="d-flex flex-row">
+                <div class="form-group form-check">
+<!--                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ item.pk }}">-->
+                    <img class="rounded" src="{{ item.image.url }}" width="350" height="300">
+                    <h5 style="color:white; font-weight: bolder;" class="mt-3"><b>{{ item.name }}</b></h5>
+                    <P style="color:white; font-weight: bolder;"><b>Price: {{ item.price }}</b></P>
+                    <p style="color:white; font-weight: bolder;">{{ item.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+<!--    <div class="form-group pt-3">-->
+
+<!--                    <label style="color:white;" for="name">Full Name</label>-->
+<!--                    <input required class="form-control" type="text" placeholder="Your Name" name="name" />-->
+<!--                </div>-->
+
+<!--                <div class="form-group pt-3">-->
+<!--                    <label style="color:white;" for="name">Email Address</label>-->
+<!--                    <input required class="form-control" type="text" placeholder="example@company.com" name="email" />-->
+<!--                </div>-->
+
+<!--                <div class="form-group pt-3">-->
+<!--                    <label style="color:white;" for="name">Street Address</label>-->
+<!--                    <input required class="form-control" type="text" placeholder="1234 Main St" name="street" />-->
+<!--                </div>-->
+
+<!--                <div class="row">-->
+<!--                    <div class="col-md-4 col-sm-12">-->
+<!--                        <div class="form-group pt-3">-->
+<!--                            <label style="color:white;" for="name">City</label>-->
+<!--                            <input required class="form-control" type="text" placeholder="San Francisco" name="city" />-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="col-md-4 col-sm-12">-->
+<!--                        <div class="form-group pt-3">-->
+<!--                            <label style="color:white;" for="name">State</label>-->
+<!--                            <input required class="form-control" type="text" placeholder="CA" name="state" />-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="col-md-4 col-sm-12">-->
+<!--                        <div class="form-group pt-3">-->
+<!--                            <label style="color:white;" for="name">Zip Code</label>-->
+<!--                            <input required class="form-control" type="text" placeholder="94117" name="zip" />-->
+<!--                        </div>-->
+<!--                            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#submitModal">-->
+<!--                  Submit Order!-->
+<!--                </button>-->
+<!--                &lt;!&ndash; <button class="btn btn-dark mt-5">Place Order!</button> &ndash;&gt;-->
+
+<!--                &lt;!&ndash; Modal &ndash;&gt;-->
+<!--                <div class="modal fade" id="submitModal1" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">-->
+<!--                  <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                      <div class="modal-header">-->
+<!--                        <h5 class="modal-title" id="submitModalLabel1">Submit Your Order!</h5>-->
+<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                          <span aria-hidden="true">&times;</span>-->
+<!--                        </button>-->
+<!--                      </div>-->
+<!--                      <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-light" data-dismiss="modal">Go Back</button>-->
+<!--                        <button type="submit" class="btn btn-dark">Place Order!</button>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+
+
+                <!-- Button trigger modal -->
+<!--                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#submitModal">-->
+<!--                  Submit Order!-->
+<!--                </button>-->
+<!--                &lt;!&ndash; <button class="btn btn-dark mt-5">Place Order!</button> &ndash;&gt;-->
+
+<!--                &lt;!&ndash; Modal &ndash;&gt;-->
+<!--                <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">-->
+<!--                  <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                      <div class="modal-header">-->
+<!--                        <h5 class="modal-title" id="submitModalLabel">Submit Your Order!</h5>-->
+<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                          <span aria-hidden="true">&times;</span>-->
+<!--                        </button>-->
+<!--                      </div>-->
+<!--                      <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-light" data-dismiss="modal">Go Back</button>-->
+<!--                        <button type="submit" class="btn btn-dark">Place Order!</button>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+    </div>
+{% endblock content %}

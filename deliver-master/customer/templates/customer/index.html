@@ -1,0 +1,17 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+            <h1 style= "font-family:impact; font-size:55px; color:white;">FoOdIe PaNdA</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-1">
+        <div style="background-color:black; opacity: 0.6;" class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
+            <h2 style="color:white; background-color:transparent;"><b>Place an Order!</b></h2>
+            <a style="font-size:25px; font-weight: bolder; color:black;" href="{% url 'order' %}" class="btn btn-outline-primary"><b>Order Now!</b></a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
